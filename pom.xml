@@ -50,19 +50,25 @@
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.0</version>
         <executions>
           <execution>
             <phase>package</phase>
-            <configuration>
-              <archive>
-                <manifest>
-                  <mainClass>com.github.jitpack.App</mainClass>
-                </manifest>
-              </archive>
-            </configuration>
+            <goals>
+              <goal>single</goal>
+            </goals>
           </execution>
         </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.github.jitpack.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
       </plugin>
       <!-- <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>2.1</version><executions><execution><phase>package</phase><goals><goal>shade</goal></goals><configuration><transformers><transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"><mainClass>com.github.jitpack.App</mainClass></transformer></transformers></configuration></execution></executions></plugin> -->
       <plugin>
