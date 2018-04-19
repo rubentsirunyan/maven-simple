@@ -14,4 +14,9 @@ public class App
     public String greet(String name) {
         return "Hello " + name;
     }
+
+    public Boolean truer(String val) {
+        return true;
+    }
+    
 }
